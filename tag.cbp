@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="tag" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="arm-elf-gcc" />
+		<Build>
+			<Target title="cc2640">
+				<Option output="tag.elf" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj" />
+				<Option type="1" />
+				<Option compiler="arm-elf-gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-DCC2640F128RGZ=1" />
+				</Compiler>
+				<Linker>
+					<Add option="-DCC2640F128RGZ=1" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="uniflash.bat -verbose 1 -ccxml CC2640.ccxml -program tag.elf -targetOp reset" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+			<Target title="cc2650">
+				<Option output="tag.elf" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj" />
+				<Option type="1" />
+				<Option compiler="arm-elf-gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-DCC2650F128RGZ=1" />
+					<Add option="-DSensorTag=1" />
+				</Compiler>
+				<Linker>
+					<Add option="-DCC2650F128RGZ=1" />
+				</Linker>
+				<ExtraCommands>
+					<Add after="uniflash.bat -verbose 1 -ccxml CC2650.ccxml -program tag.elf -targetOp reset" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c99" />
+			<Add option="-O0 -mcpu=cortex-m3 -gdwarf-2 -mthumb -fomit-frame-pointer -Wall -Wstrict-prototypes" />
+			<Add option="-Dgcc=1" />
+			<Add directory="cc26xxware" />
+		</Compiler>
+		<Linker>
+			<Add option="-mcpu=cortex-m3" />
+			<Add option="-nostartfiles" />
+			<Add option="-T cc26xxware/linker_files/cc26x0f128.lds" />
+			<Add option="-Wl,-Map=tag.map,--cref,--no-warn-mismatch" />
+		</Linker>
+		<Unit filename="cc26xxware/driverlib/adi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/adi.h" />
+		<Unit filename="cc26xxware/driverlib/aon_batmon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aon_batmon.h" />
+		<Unit filename="cc26xxware/driverlib/aon_event.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aon_event.h" />
+		<Unit filename="cc26xxware/driverlib/aon_ioc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aon_ioc.h" />
+		<Unit filename="cc26xxware/driverlib/aon_rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aon_rtc.h" />
+		<Unit filename="cc26xxware/driverlib/aon_wuc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aon_wuc.h" />
+		<Unit filename="cc26xxware/driverlib/aux_adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aux_adc.h" />
+		<Unit filename="cc26xxware/driverlib/aux_smph.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aux_smph.h" />
+		<Unit filename="cc26xxware/driverlib/aux_tdc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aux_tdc.h" />
+		<Unit filename="cc26xxware/driverlib/aux_timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aux_timer.h" />
+		<Unit filename="cc26xxware/driverlib/aux_wuc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/aux_wuc.h" />
+		<Unit filename="cc26xxware/driverlib/chipinfo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/chipinfo.h" />
+		<Unit filename="cc26xxware/driverlib/cpu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/cpu.h" />
+		<Unit filename="cc26xxware/driverlib/crypto.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/crypto.h" />
+		<Unit filename="cc26xxware/driverlib/ddi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/ddi.h" />
+		<Unit filename="cc26xxware/driverlib/debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/debug.h" />
+		<Unit filename="cc26xxware/driverlib/driverlib_ver.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/driverlib_ver.h" />
+		<Unit filename="cc26xxware/driverlib/event.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/event.h" />
+		<Unit filename="cc26xxware/driverlib/flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/flash.h" />
+		<Unit filename="cc26xxware/driverlib/flashsafe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/flashsafe.h" />
+		<Unit filename="cc26xxware/driverlib/gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/gpio.h" />
+		<Unit filename="cc26xxware/driverlib/i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/i2c.h" />
+		<Unit filename="cc26xxware/driverlib/i2s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/i2s.h" />
+		<Unit filename="cc26xxware/driverlib/interrupt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/interrupt.h" />
+		<Unit filename="cc26xxware/driverlib/ioc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/ioc.h" />
+		<Unit filename="cc26xxware/driverlib/obs.h" />
+		<Unit filename="cc26xxware/driverlib/osc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/osc.h" />
+		<Unit filename="cc26xxware/driverlib/prcm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/prcm.h" />
+		<Unit filename="cc26xxware/driverlib/pwr_ctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/pwr_ctrl.h" />
+		<Unit filename="cc26xxware/driverlib/rfc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/rfc.h" />
+		<Unit filename="cc26xxware/driverlib/rom.h" />
+		<Unit filename="cc26xxware/driverlib/setup.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/smph.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/smph.h" />
+		<Unit filename="cc26xxware/driverlib/spis.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/spis.h" />
+		<Unit filename="cc26xxware/driverlib/ssi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/ssi.h" />
+		<Unit filename="cc26xxware/driverlib/sys_ctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/sys_ctrl.h" />
+		<Unit filename="cc26xxware/driverlib/systick.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/systick.h" />
+		<Unit filename="cc26xxware/driverlib/timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/timer.h" />
+		<Unit filename="cc26xxware/driverlib/trng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/trng.h" />
+		<Unit filename="cc26xxware/driverlib/uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/uart.h" />
+		<Unit filename="cc26xxware/driverlib/udma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/udma.h" />
+		<Unit filename="cc26xxware/driverlib/vims.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/vims.h" />
+		<Unit filename="cc26xxware/driverlib/watchdog.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/driverlib/watchdog.h" />
+		<Unit filename="cc26xxware/inc/asmdefs.h" />
+		<Unit filename="cc26xxware/inc/hw_adi.h" />
+		<Unit filename="cc26xxware/inc/hw_adi_0_rf.h" />
+		<Unit filename="cc26xxware/inc/hw_adi_1_synth.h" />
+		<Unit filename="cc26xxware/inc/hw_adi_2_refsys.h" />
+		<Unit filename="cc26xxware/inc/hw_adi_3_refsys.h" />
+		<Unit filename="cc26xxware/inc/hw_adi_4_aux.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_batmon.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_event.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_ioc.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_rtc.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_sysctl.h" />
+		<Unit filename="cc26xxware/inc/hw_aon_wuc.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_aiodio.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_anaif.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_evctl.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_sce.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_smph.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_tdc.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_timer.h" />
+		<Unit filename="cc26xxware/inc/hw_aux_wuc.h" />
+		<Unit filename="cc26xxware/inc/hw_ccfg.h" />
+		<Unit filename="cc26xxware/inc/hw_ccfg_simple_struct.h" />
+		<Unit filename="cc26xxware/inc/hw_chip_def.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_cc26xx.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_dwt.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_fpb.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_itm.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_rom_table.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_scs.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_tiprop.h" />
+		<Unit filename="cc26xxware/inc/hw_cpu_tpiu.h" />
+		<Unit filename="cc26xxware/inc/hw_crypto.h" />
+		<Unit filename="cc26xxware/inc/hw_ddi.h" />
+		<Unit filename="cc26xxware/inc/hw_ddi_0_osc.h" />
+		<Unit filename="cc26xxware/inc/hw_device.h" />
+		<Unit filename="cc26xxware/inc/hw_dlo_dtx.h" />
+		<Unit filename="cc26xxware/inc/hw_event.h" />
+		<Unit filename="cc26xxware/inc/hw_fcfg1.h" />
+		<Unit filename="cc26xxware/inc/hw_flash.h" />
+		<Unit filename="cc26xxware/inc/hw_gpio.h" />
+		<Unit filename="cc26xxware/inc/hw_gpt.h" />
+		<Unit filename="cc26xxware/inc/hw_i2c.h" />
+		<Unit filename="cc26xxware/inc/hw_i2s.h" />
+		<Unit filename="cc26xxware/inc/hw_ints.h" />
+		<Unit filename="cc26xxware/inc/hw_ioc.h" />
+		<Unit filename="cc26xxware/inc/hw_memmap.h" />
+		<Unit filename="cc26xxware/inc/hw_nvic.h" />
+		<Unit filename="cc26xxware/inc/hw_prcm.h" />
+		<Unit filename="cc26xxware/inc/hw_rfc_dbell.h" />
+		<Unit filename="cc26xxware/inc/hw_rfc_pwr.h" />
+		<Unit filename="cc26xxware/inc/hw_rfc_rat.h" />
+		<Unit filename="cc26xxware/inc/hw_smph.h" />
+		<Unit filename="cc26xxware/inc/hw_spis.h" />
+		<Unit filename="cc26xxware/inc/hw_ssi.h" />
+		<Unit filename="cc26xxware/inc/hw_sysctl.h" />
+		<Unit filename="cc26xxware/inc/hw_trng.h" />
+		<Unit filename="cc26xxware/inc/hw_types.h" />
+		<Unit filename="cc26xxware/inc/hw_uart.h" />
+		<Unit filename="cc26xxware/inc/hw_udma.h" />
+		<Unit filename="cc26xxware/inc/hw_vims.h" />
+		<Unit filename="cc26xxware/inc/hw_wdt.h" />
+		<Unit filename="cc26xxware/startup_files/ccfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cc26xxware/startup_files/startup_gcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/tag.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
